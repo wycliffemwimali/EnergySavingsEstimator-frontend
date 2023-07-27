@@ -31,11 +31,6 @@ import Home from './routes/Home';
 import Visualize from './routes/Visualize';
 
 
-import Image1 from './energy1.jpeg';
-import Image2 from './energy2.jpeg';
-import Image3 from './energy3.jpeg';
-
-
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -128,17 +123,6 @@ const ImageCarousel = ({ images }) => {
   );
 };
 
-const SloganTypography = styled(Typography)(({ theme }) => ({
-  fontSize: '1.5rem',
-  position: 'relative',
-  textAlign: 'center',
-  fontWeight: 'bold',
-  fontStyle: 'italic',
-  [theme.breakpoints.up('sm')]: {
-    fontSize: '2rem',
-  },
-}));
-
 export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -217,12 +201,6 @@ export default function MiniDrawer() {
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3, paddingTop: '30px' }}>
           <DrawerHeader />
-{/* 
-          <SloganTypography variant="subtitle1" gutterBottom>
-            "Empowering Tomorrow with Sustainable Energy Solutions"
-          </SloganTypography>
-
-          <ImageCarousel images={[Image1, Image2, Image3]} /> */}
 
           <Switch>
             <Route path="/Temperature">

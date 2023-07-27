@@ -1,12 +1,15 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
+import GoogleMapWithMarker from './GoogleMapWithMarker';
 
-const Map = () => {
+const App = () => {
+  // Replace 'YOUR_GOOGLE_MAPS_API_KEY' with your actual API key
+  const apiKey = 'AIzaSyAaTKwwRKo37A7N7b3f-Ft12Jz8MzVHRqI';
+
   return (
-    <Typography variant="h2" gutterBottom>
-      All Map Page
-    </Typography>
+    <div>
+      <GoogleMapWithMarker apiKey={apiKey} />
+    </div>
   );
 };
 
-export default Map;
+export default App;
