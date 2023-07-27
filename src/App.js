@@ -1,13 +1,14 @@
 // import logo from './logo.svg';
 import './App.css';
 import './component/Appbar'
-import Appbar from './component/Appbar';
+import { BrowserRouter as Router } from 'react-router-dom';
+import MiniDrawer from './component/Appbar';
 
 function App() {
   return (
-    <div className="App">
-     <Appbar/>
-    </div>
+    <Router>
+     <MiniDrawer/>
+    </Router>
   );
 }
 

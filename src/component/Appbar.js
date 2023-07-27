@@ -16,12 +16,25 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import DeviceThermostatTwoToneIcon from '@mui/icons-material/DeviceThermostatTwoTone';
+import HomeIcon from '@mui/icons-material/Home';
+import GpsFixedTwoToneIcon from '@mui/icons-material/GpsFixedTwoTone';
+import EnergySavingsLeafTwoToneIcon from '@mui/icons-material/EnergySavingsLeafTwoTone';
+import TimelineTwoToneIcon from '@mui/icons-material/TimelineTwoTone';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Temperature from './routes/Temperature';
+import Energy from './routes/Energy';
+import Map from './routes/Map';
+import Trends from './routes/Trends';
+import Home from './routes/Home';
+import Visualize from './routes/Visualize';
+
 
 import Image1 from './energy1.jpeg';
 import Image2 from './energy2.jpeg';
 import Image3 from './energy3.jpeg';
+
 
 const drawerWidth = 240;
 
@@ -117,13 +130,14 @@ const ImageCarousel = ({ images }) => {
 
 const SloganTypography = styled(Typography)(({ theme }) => ({
   fontSize: '1.5rem',
+  position: 'relative',
+  textAlign: 'center',
   fontWeight: 'bold',
   fontStyle: 'italic',
   [theme.breakpoints.up('sm')]: {
     fontSize: '2rem',
   },
 }));
-
 
 export default function MiniDrawer() {
   const theme = useTheme();
@@ -138,98 +152,100 @@ export default function MiniDrawer() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Energy Savings Estimator
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+    <Router>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: 5,
+                ...(open && { display: 'none' }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              Energy Savings Estimator
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            {[
+              { text: 'Home', icon: <HomeIcon />, link: '/' },
+              { text: 'Map Integration', icon: <GpsFixedTwoToneIcon />, link: '/Map' },
+              { text: 'Temperature Data', icon: <DeviceThermostatTwoToneIcon />, link: '/Temperature' },
+              { text: 'Energy Savings', icon: <EnergySavingsLeafTwoToneIcon />, link: '/Energy' },
+              { text: 'Data Trends', icon: <TimelineTwoToneIcon />, link: '/Trends' },
+              { text: 'Data Visualization', icon: <LeaderboardIcon />, link: '/Visualize' },
+            ].map((item, index) => (
+              <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
+                  component={Link}
+                  to={item.link}
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3, paddingTop: '30px' }}>
-        <DrawerHeader />
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {item.icon}
+                  </ListItemIcon>
+                  <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+        <Box component="main" sx={{ flexGrow: 1, p: 3, paddingTop: '30px' }}>
+          <DrawerHeader />
 
-        {/* <Typography variant="h3" gutterBottom>
-          Prominent Header
-        </Typography> */}
-        <SloganTypography variant="subtitle1" gutterBottom>
-        "Empowering Tomorrow with Sustainable Energy Solutions"
-        </SloganTypography>
+          <SloganTypography variant="subtitle1" gutterBottom>
+            "Empowering Tomorrow with Sustainable Energy Solutions"
+          </SloganTypography>
 
-        {/* Implement the Image Carousel */}
-        <ImageCarousel images={[Image1, Image2, Image3]} />
+          <ImageCarousel images={[Image1, Image2, Image3]} />
 
+          <Switch>
+            <Route path="/Temperature">
+              <Temperature />
+            </Route>
+            <Route path="/Energy">
+              <Energy />
+            </Route>
+            <Route path="/Map">
+              <Map />
+            </Route>
+            <Route path="/Trends">
+              <Trends />
+            </Route>
+            <Route path="/Visualize">
+              <Visualize />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Box>
       </Box>
-    </Box>
+    </Router>
   );
 }
