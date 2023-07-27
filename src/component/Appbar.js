@@ -217,12 +217,12 @@ export default function MiniDrawer() {
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3, paddingTop: '30px' }}>
           <DrawerHeader />
-
+{/* 
           <SloganTypography variant="subtitle1" gutterBottom>
             "Empowering Tomorrow with Sustainable Energy Solutions"
           </SloganTypography>
 
-          <ImageCarousel images={[Image1, Image2, Image3]} />
+          <ImageCarousel images={[Image1, Image2, Image3]} /> */}
 
           <Switch>
             <Route path="/Temperature">
