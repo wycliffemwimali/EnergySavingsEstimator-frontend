@@ -38,7 +38,7 @@ const Temperature = () => {
     <Container maxWidth="sm">
       <Box mt={5} p={3} component={Paper}>
         <Typography variant="h4" gutterBottom>
-          Weather Forecast App
+          Weather Forecast
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField

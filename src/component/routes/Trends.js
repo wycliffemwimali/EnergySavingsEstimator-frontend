@@ -1,12 +1,31 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
+import EnergySavingsChart from '../charts/EnergySavingsChart';
+import styled from 'styled-components';
 
-const Trends = () => {
+const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set the height of the page to 100% of the viewport height */
+`;
+
+const ContentWrapper = styled.div`
+  flex: 1; /* Take up all available space in the vertical direction */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+function Trends() {
   return (
-    <Typography variant="h2" gutterBottom>
-      Trends Page
-    </Typography>
+    <PageWrapper>
+      <h1>Energy Savings Trends</h1>
+      <ContentWrapper>
+        <EnergySavingsChart />
+      </ContentWrapper>
+    </PageWrapper>
   );
-};
+}
 
 export default Trends;
