@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { GoogleMap, LoadScript, Marker, Polygon } from '@react-google-maps/api';
+import axios from 'axios';
 
 const mapContainerStyle = {
   width: '100%',
@@ -38,12 +39,22 @@ const redButtonStyle = {
   backgroundColor: 'red',
 };
 
+const inputStyle = {
+  padding: '8px',
+  margin: '5px 0',
+  borderRadius: '4px',
+  border: '1px solid #ccc',
+  width: '100%',
+};
+
 const GoogleMapWithMarker = ({ apiKey }) => {
   const [currentPosition, setCurrentPosition] = useState(null);
   const [enableGPS, setEnableGPS] = useState(true);
   const [roofCoordinates, setRoofCoordinates] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [roofArea, setRoofArea] = useState(null);
+  const [material, setMaterial] = useState('');
+  const [reflectance, setReflectance] = useState('');
 
   // Ref to access Google Maps map instance
   const mapRef = useRef(null);
@@ -99,7 +110,38 @@ const GoogleMapWithMarker = ({ apiKey }) => {
 
     setRoofArea(area.toFixed(2));
     setModalOpen(true);
+  };
+
+  const handleSubmit = () => {
+    // Validate the material and reflectance values before sending them to the backend
+    if (!material || !reflectance) {
+      console.error('Material and reflectance values are required.');
+      return;
+    }
+
+    // Prepare the payload to send to the backend with the correct property order
+    const payload = {
+      material,
+      area: parseFloat(roofArea), // Convert to a floating-point number
+      reflectance: parseFloat(reflectance), // Convert to a floating-point number
+    };
+
+    // Send the rooftop area, material, and reflectance to the backend
+    axios
+      .post('/api/rooftop/area', payload)
+      .then((response) => {
+        console.log('Rooftop data sent to the backend successfully.');
+        // If you need to handle the backend response, you can do so here.
+      })
+      .catch((error) => {
+        console.error('Error sending rooftop data to the backend:', error);
+        // If there was an error sending the data, you can handle it here.
+      });
+
+    setModalOpen(false); // Close the modal after submission
     setRoofCoordinates([]); // Clear the selected building after finding the area
+    setMaterial('');
+    setReflectance('');
   };
 
   const handleToggleGPS = () => {
@@ -149,6 +191,27 @@ const GoogleMapWithMarker = ({ apiKey }) => {
           <div style={{ ...modalStyle }}>
             <h2>Rooftop Area</h2>
             <p>The approximate area of the rooftop is {roofArea} square meters.</p>
+            <label htmlFor="material">Material:</label>
+            <input
+              type="text"
+              id="material"
+              value={material}
+              onChange={(e) => setMaterial(e.target.value)}
+              style={inputStyle}
+            />
+            <br />
+            <label htmlFor="reflectance">Reflectance:</label>
+            <input
+              type="text"
+              id="reflectance"
+              value={reflectance}
+              onChange={(e) => setReflectance(e.target.value)}
+              style={inputStyle}
+            />
+            <br />
+            <button style={greenButtonStyle} onClick={handleSubmit}>
+              Submit
+            </button>
             <button style={redButtonStyle} onClick={handleModalClose}>
               Close
             </button>

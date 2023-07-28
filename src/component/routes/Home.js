@@ -8,6 +8,10 @@ import Image1 from '../energy1.jpg';
 import Image2 from '../energy2.jpg';
 import Image3 from '../energy3.jpg';
 import Image5 from '../energy4.jpg';
+import Image6 from '../energy5.jpg';
+import Image7 from '../energy6.jpg';
+import Image8 from '../energy7.jpg';
+import Image9 from '../energy8.jpg';
 
 const ImageCarousel = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
@@ -61,7 +65,7 @@ export default function Home() {
           <SloganTypography variant="subtitle1" gutterBottom>
             "Empowering Tomorrow with Sustainable Energy Solutions"
           </SloganTypography>
-          <ImageCarousel images={[Image5, Image4, Image1, Image2, Image3]} />
+          <ImageCarousel images={[Image5, Image4, Image1, Image2, Image3, Image8, Image6, Image7, Image9]} />
     </Router>
   );
 }
