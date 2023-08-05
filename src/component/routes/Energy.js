@@ -1,60 +1,65 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function Energy() {
-  const [currentEnergyConsumption, setCurrentEnergyConsumption] = useState(0);
-  const [energySavingPercentage, setEnergySavingPercentage] = useState(0);
-  const [predictedAnnualSavings, setPredictedAnnualSavings] = useState(0);
+  const [predictedSavings, setPredicatedSavings] = useState(0);
+  const [latestRooftopId, setLatestRooftopId] = useState(null);
 
-  const handleCurrentEnergyChange = (event) => {
-    setCurrentEnergyConsumption(Number(event.target.value));
+  // useEffect(() => {
+  //   fetchLatestRooftopId();
+  // }, []);
+
+  useEffect(() => {
+    // if (latestRooftopId !== null) {
+    //   fetchEnergySavings(latestRooftopId);
+    // }
+    fetchLatestRooftopId()
+    fetchEnergySavings()
+  }, [latestRooftopId]);
+
+  const fetchLatestRooftopId = async () => {
+    try {
+        await axios.get('http://localhost:8080/api/rooftop/latest-rooftop')
+        .then((res)=>{
+        // console.log("id",res.data)
+        setLatestRooftopId(res.data);
+
+      })
+      // const data = await response.json();
+    } catch (error) {
+      console.error('Error fetching latest rooftop ID:', error);
+    }
   };
 
-  const handleEnergySavingPercentageChange = (event) => {
-    setEnergySavingPercentage(Number(event.target.value));
-  };
+  const fetchEnergySavings = async () => {
+    try {
+      await axios.get(`http://localhost:8080/api/energy-savings/${latestRooftopId}`)
+      .then((res)=>{
+          // console.log(res.data)
+        setPredicatedSavings(res.data);
 
-  const calculatePredictedAnnualSavings = () => {
-    const annualSavings = (currentEnergyConsumption * energySavingPercentage) / 100;
-    setPredictedAnnualSavings(annualSavings);
+      })
+    } catch (error) {
+      console.error('Error fetching energy savings:', error);
+    }
   };
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>Energy Savings Calculator</h1>
-      <div>
-        <label>
-          Current Energy Consumption (kWh/year):
-          <input
-            type="number"
-            value={currentEnergyConsumption}
-            onChange={handleCurrentEnergyChange}
-            style={{ marginLeft: '10px' }}
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          Energy Saving Percentage (%):
-          <input
-            type="number"
-            value={energySavingPercentage}
-            onChange={handleEnergySavingPercentageChange}
-            style={{ marginLeft: '10px' }}
-          />
-        </label>
-      </div>
-      <div>
-        <button onClick={calculatePredictedAnnualSavings} style={{ marginTop: '10px' }}>
-          Calculate Predicted Annual Savings
-        </button>
-      </div>
-      <div>
-        {predictedAnnualSavings > 0 && (
-          <p style={{ fontSize: '18px', marginTop: '20px' }}>
-            Predicted Annual Savings: {predictedAnnualSavings.toFixed(2)} kWh
-          </p>
-        )}
-      </div>
+      {latestRooftopId === null ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          {predictedSavings > 0 ? (
+            <p style={{ fontSize: '18px', marginTop: '20px' }}>
+              Predicted Annual Savings: {predictedSavings.toFixed(2)} kWh
+            </p>
+          ) : (
+            <p>No energy savings data available for the latest rooftop.</p>
+          )}
+        </>
+      )}
     </div>
   );
 }
