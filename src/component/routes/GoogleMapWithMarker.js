@@ -54,7 +54,7 @@ const GoogleMapWithMarker = ({ apiKey }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [roofArea, setRoofArea] = useState(null);
   const [material, setMaterial] = useState('');
-  const [reflectance, setReflectance] = useState('');
+  // const [reflectance, setReflectance] = useState('');
 
   // Ref to access Google Maps map instance
   const mapRef = useRef(null);
@@ -82,7 +82,7 @@ const GoogleMapWithMarker = ({ apiKey }) => {
     getCurrentLocation(); // Call the function to get the current location
 
     // Periodically update the current location every 10 seconds
-    const intervalId = setInterval(getCurrentLocation, 10000);
+    const intervalId = setInterval(getCurrentLocation, 10000000);
 
     return () => {
       clearInterval(intervalId); // Clean up the interval when the component unmounts
@@ -114,8 +114,8 @@ const GoogleMapWithMarker = ({ apiKey }) => {
 
   const handleSubmit = () => {
     // Validate the material and reflectance values before sending them to the backend
-    if (!material || !reflectance) {
-      console.error('Material and reflectance values are required.');
+    if (!material) {
+      console.error('Material values are required.');
       return;
     }
 
@@ -123,12 +123,12 @@ const GoogleMapWithMarker = ({ apiKey }) => {
     const payload = {
       material,
       area: parseFloat(roofArea), // Convert to a floating-point number
-      reflectance: parseFloat(reflectance), // Convert to a floating-point number
+      // reflectance: parseFloat(reflectance), // Convert to a floating-point number
     };
 
     // Send the rooftop area, material, and reflectance to the backend
     axios
-      .post('/api/rooftop/area', payload)
+      .post('http://localhost:8080/api/rooftop/area', payload)
       .then((response) => {
         console.log('Rooftop data sent to the backend successfully.');
         // If you need to handle the backend response, you can do so here.
@@ -141,7 +141,7 @@ const GoogleMapWithMarker = ({ apiKey }) => {
     setModalOpen(false); // Close the modal after submission
     setRoofCoordinates([]); // Clear the selected building after finding the area
     setMaterial('');
-    setReflectance('');
+    // setReflectance('');
   };
 
   const handleToggleGPS = () => {
@@ -200,14 +200,14 @@ const GoogleMapWithMarker = ({ apiKey }) => {
               style={inputStyle}
             />
             <br />
-            <label htmlFor="reflectance">Reflectance:</label>
+            {/* <label htmlFor="reflectance">Reflectance:</label>
             <input
               type="text"
               id="reflectance"
               value={reflectance}
               onChange={(e) => setReflectance(e.target.value)}
               style={inputStyle}
-            />
+            /> */}
             <br />
             <button style={greenButtonStyle} onClick={handleSubmit}>
               Submit

@@ -20,6 +20,9 @@ const CenteredContainer = styled(Container)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  maxWidth: '1600px',
+  padding: '20px',
+  backgroundColor: '#8cedab',
 });
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
