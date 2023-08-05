@@ -66,8 +66,7 @@
   }
   
   .energy-details {
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 100px;
     border: 2px solid #00bcd4;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -75,7 +74,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 150%; /* Adjust this value as needed */
+    padding-left: -20px; /* Add padding to the column */
   }
+
+  .energy-chart-container {
+    /* Add styles for the circular graph container */
+    width: 40%; /* Adjust this value as needed */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -450px; /* Example: Move the chart 100px above the energy container */
+    width: 700px; /* Example: Set the width of the chart container */
+    margin: 0 auto;
+    align-items: center;
+    padding-left: 450px; /* Add padding to the column */
+  }
+
+ #energy-chart {
+  /* Add styles for the circular graph canvas */
+  /* You may adjust the size or border if needed */
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
   
   /* Style the energy-text and add more line-height for readability */
   .energy-text {
@@ -113,6 +135,12 @@
   /* Adding some animation to the icons */
   .energy-details .icon {
     transition: transform 0.3s ease;
+  }
+
+  .energy-details-container {
+    display: flex; /* Use 'grid' if you prefer a grid layout */
+    flex-wrap: wrap; /* Add this line to wrap columns on smaller screens */
+    justify-content: space-between; /* Adjust this value to align columns */
   }
   
   
