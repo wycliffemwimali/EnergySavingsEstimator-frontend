@@ -1,20 +1,63 @@
 /* Energy.css */
 
 .energy-container {
-    text-align: center;
-    margin-top: 50px;
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
+    
+  margin-top: 70px;
+  height: 350px;
+  width: 1200px;
+  border-radius: 30px;
+  position: relative;
+  background-color: rgba(20, 230, 184, 0.2);
+  box-shadow: 0px 0px 10px silver;
+  background-image: url('../routes/temperature/images/calback.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: inherit;
+  box-sizing: content-box;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-blend-mode: multiply;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  body {
+    background-image: url('../routes/temperature/images/background.jpg');
+    margin: 0;
+    padding: 0;
   }
   
+  /* Center the content vertically on the page */
+  /* body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  } */
+  
+
   .energy-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+    position: absolute;
+  top: 30px;
+  color: #365a7a;
+  font-size: 48px;
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+  }
+
+  .energy-title:before {
+    content: '';
+    background: url('../routes/temperature/images/energy-removebg-preview.png') no-repeat;
+    background-size: 100%;
+    width: 250px;
+    height: 250px;
+    display: block;
   }
   
   .energy-loading {
@@ -24,16 +67,54 @@
   
   .energy-details {
     margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #00bcd4;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
+  /* Style the energy-text and add more line-height for readability */
   .energy-text {
     font-size: 18px;
     color: #333;
+    line-height: 1.6;
+    text-align: center; /* Center-align the text */
+    margin-bottom: 15px; /* Add some space between text and icons */
   }
+  
+  /* Add some fancy icons to the energy-details */
+  .energy-details .icon {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    background-color: #00bcd4;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Adding hover effects to the icons */
+  .energy-details .icon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Adding some animation to the icons */
+  .energy-details .icon {
+    transition: transform 0.3s ease;
+  }
+  
   
   .energy-savings-positive {
     font-size: 18px;
