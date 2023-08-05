@@ -1,0 +1,49 @@
+/* Energy.css */
+
+.energy-container {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .energy-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .energy-loading {
+    font-size: 20px;
+    color: #999;
+  }
+  
+  .energy-details {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .energy-text {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .energy-savings-positive {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #4caf50;
+  }
+  
+  .energy-savings-negative {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #f44336;
+  }
+  
