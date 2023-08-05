@@ -92,4 +92,4 @@ class Temperature extends React.Component {
   }
 }
 
-export default Temperature;
+// export default Temperature;
