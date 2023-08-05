@@ -29,6 +29,7 @@ import Map from './routes/Map';
 import Trends from './routes/Trends';
 import Home from './routes/Home';
 import Visualize from './routes/Visualize';
+import './routes/temp/src/style.css';
 
 
 const drawerWidth = 240;
