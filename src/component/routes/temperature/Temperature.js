@@ -1,148 +1,95 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import {
-  Container,
-  TextField,
-  Button,
-  Typography,
-  Box,
-  Paper,
-  CircularProgress,
-} from '@mui/material';
-import WeatherIcon from './WeatherIcon'; // Custom component to display weather icons
-import { styled } from '@mui/material/styles';
+import React from 'react';
+import './App.css';
+import MainWeatherWindow from './components/MainWeatherWindow';
+import CityInput from './components/CityInput';
+import WeatherBox from './components/WeatherBox';
 
-const API_KEY = '6eb9b4e26cfb2dfd8e6e9f9b4f7edfe4'; // Replace with your actual API key
-const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
+class Temperature extends React.Component {
+  state = {
+    city: undefined,
 
-const CenteredContainer = styled(Container)({
-  minHeight: '100vh',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  maxWidth: '1600px',
-  padding: '20px',
-  backgroundColor: '#8cedab',
-});
+    // days contains objects with the following properties:
+    // date, weather_desc, icon, temp
+    days: new Array(5)
+  };
 
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(4),
-  maxWidth: 500,
-  width: '100%',
-  borderRadius: theme.spacing(2),
-  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-}));
+  // creates the day objects and updates the state
+  updateState = data => {
+    const city = data.city.name;
+    const days = [];
+    const dayIndices = this.getDayIndices(data);
 
-const FormContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  '& > *': {
-    marginRight: theme.spacing(2),
-  },
-  [theme.breakpoints.down('sm')]: {
-    flexDirection: 'column',
-    alignItems: 'stretch',
-    '& > *': {
-      marginBottom: theme.spacing(2),
-    },
-  },
-}));
-
-const WeatherContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  '& > *': {
-    margin: theme.spacing(1),
-  },
-}));
-
-const Temperature = () => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [city, setCity] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  const fetchWeatherData = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(API_URL, {
-        params: {
-          q: city,
-          appid: API_KEY,
-          units: 'metric',
-        },
+    for (let i = 0; i < 5; i++) {
+      days.push({
+        date: data.list[dayIndices[i]].dt_txt,
+        weather_desc: data.list[dayIndices[i]].weather[0].description,
+        icon: data.list[dayIndices[i]].weather[0].icon,
+        temp: data.list[dayIndices[i]].main.temp
       });
-      setWeatherData(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error fetching weather data:', error);
-      setLoading(false);
     }
+
+    this.setState({
+      city: city,
+      days: days
+    });
   };
 
-  const handleCityChange = (event) => {
-    setCity(event.target.value);
+  // tries to make an API call with the given city name and triggers state update
+  makeApiCall = async city => {
+    const api_data = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=6557810176c36fac5f0db536711a6c52`
+    ).then(resp => resp.json());
+
+    if (api_data.cod === '200') {
+      await this.updateState(api_data);
+      return true;
+    } else return false;
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    fetchWeatherData();
+  // returns array with Indices of the next five days in the list
+  // from the API data (every day at 12:00 pm)
+  getDayIndices = data => {
+    let dayIndices = [];
+    dayIndices.push(0);
+
+    let index = 0;
+    let tmp = data.list[index].dt_txt.slice(8, 10);
+
+    for (let i = 0; i < 4; i++) {
+      while (
+        tmp === data.list[index].dt_txt.slice(8, 10) ||
+        data.list[index].dt_txt.slice(11, 13) !== '15'
+      ) {
+        index++;
+      }
+      dayIndices.push(index);
+      tmp = data.list[index].dt_txt.slice(8, 10);
+    }
+    return dayIndices;
   };
 
-  return (
-    <CenteredContainer>
-      <StyledPaper>
-        <Typography variant="h4" gutterBottom>
-          Weather Forecast
-        </Typography>
-        <FormContainer component="form" onSubmit={handleSubmit}>
-          <TextField
-            label="Enter city name"
-            variant="outlined"
-            fullWidth
-            value={city}
-            onChange={handleCityChange}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            type="submit"
-            disabled={!city || loading}
-          >
-            Get Weather
-          </Button>
-        </FormContainer>
-        {loading && <CircularProgress />}
-        {weatherData && (
-          <WeatherContainer>
-            <Typography variant="h5">
-              {weatherData.name}, {weatherData.sys.country}
-            </Typography>
-            <WeatherIcon iconCode={weatherData.weather[0].icon} />
-            <Typography variant="h4">
-              {Math.round(weatherData.main.temp)}°C
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              {weatherData.weather[0].description}
-            </Typography>
-            <Typography variant="body1">
-              Feels like: {Math.round(weatherData.main.feels_like)}°C
-            </Typography>
-            <Typography variant="body1">
-              Min Temperature: {Math.round(weatherData.main.temp_min)}°C
-            </Typography>
-            <Typography variant="body1">
-              Max Temperature: {Math.round(weatherData.main.temp_max)}°C
-            </Typography>
-            <Typography variant="body1">
-              Humidity: {weatherData.main.humidity}%
-            </Typography>
-          </WeatherContainer>
-        )}
-      </StyledPaper>
-    </CenteredContainer>
-  );
-};
+  render() {
+    const WeatherBoxes = () => {
+      const weatherBoxes = this.state.days.slice(1).map(day => (
+        <li>
+          <WeatherBox {...day} />
+        </li>
+      ));
+
+      return <ul className='weather-box-list'>{weatherBoxes}</ul>;
+    };
+
+    return (
+      <div className='App'>
+        <header className='App-header'>
+          <MainWeatherWindow data={this.state.days[0]} city={this.state.city}>
+            <CityInput city={this.state.city} makeApiCall={this.makeApiCall.bind(this)} />
+            <WeatherBoxes />
+          </MainWeatherWindow>
+        </header>
+      </div>
+    );
+  }
+}
 
 export default Temperature;

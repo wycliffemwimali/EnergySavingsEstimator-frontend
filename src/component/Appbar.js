@@ -169,8 +169,8 @@ export default function MiniDrawer() {
             {[
               { text: 'Home', icon: <HomeIcon />, link: '/' },
               { text: 'Map Integration', icon: <GpsFixedTwoToneIcon />, link: '/Map' },
-              { text: 'Temperature Data', icon: <DeviceThermostatTwoToneIcon />, link: '/Temperature' },
               { text: 'Energy Savings', icon: <EnergySavingsLeafTwoToneIcon />, link: '/Energy' },
+              { text: 'Temperature Data', icon: <DeviceThermostatTwoToneIcon />, link: '/Temperature' },
               { text: 'Data Trends', icon: <TimelineTwoToneIcon />, link: '/Trends' },
               { text: 'Data Visualization', icon: <LeaderboardIcon />, link: '/Visualize' },
             ].map((item, index) => (

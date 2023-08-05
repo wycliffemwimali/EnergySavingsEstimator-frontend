@@ -1,0 +1,43 @@
+.cooling-savings {
+    margin: 0 auto;
+    width: 500px;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    margin-bottom: 5px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+  
+  th {
+    text-align: left;
+  }
+  
+  td {
+    text-align: right;
+  }
+  
+  .based-on-us-national-average {
+    font-size: 0.8em;
+    color: #999;
+  }
+  
+  .customize-savings {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
