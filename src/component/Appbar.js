@@ -23,7 +23,7 @@ import EnergySavingsLeafTwoToneIcon from '@mui/icons-material/EnergySavingsLeafT
 import TimelineTwoToneIcon from '@mui/icons-material/TimelineTwoTone';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Temperature from './routes/temperature/Temperature';
+import Temperature from './routes/temperature/App.js';
 import Energy from './routes/Energy';
 import Map from './routes/Map';
 import Trends from './routes/Trends';
