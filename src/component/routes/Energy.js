@@ -102,7 +102,6 @@ function Energy() {
     ctx.fillText('Monthly Savings', x, y + 40);
   };
 
-  
   return (
     <>
       <div className="energy-container">
@@ -154,4 +153,6 @@ function Energy() {
     </>
   );
 }
+
 export default Energy;
+
