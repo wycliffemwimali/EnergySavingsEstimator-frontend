@@ -63,7 +63,7 @@ function Info() {
           </figure>
         )}
       </button>
-      <a
+      {/* <a
         className="mr-5"
         href="https://github.com/mahmutoz/Weather-Forecast-App"
         target="_blank"
@@ -75,15 +75,15 @@ function Info() {
           className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
         />
       </a>
-      <a href="https://mahmutoz.com/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/wycliffe-mwimali-46b076225/" target="_blank" rel="noopener noreferrer">
         <figure className="w-14 h-14">
           <img
             className="rounded-md border-2 border-sky-300 dark:border-gray-200"
             src="https://avatars.githubusercontent.com/u/49031200?v=4"
-            alt="Mahmut ÖZ"
+            alt="Wycliffe"
           />
         </figure>
-      </a>
+      </a> */}
     </div>
   );
 }

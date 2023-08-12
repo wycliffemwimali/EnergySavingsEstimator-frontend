@@ -6,13 +6,13 @@ function Footer() {
       <span>Open Source by </span>
       <a
         className="text-sky-600 hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300"
-        href="https://mahmutoz.com/"
+        href="https://www.linkedin.com/in/wycliffe-mwimali-46b076225/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Mahmut ÖZ
+        Wycliffe Mwimali
       </a>
-      <span> © 2021 - Now</span>
+      <span> © 2023 - Now</span>
     </footer>
   );
 }

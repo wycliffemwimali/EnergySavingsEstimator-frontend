@@ -118,9 +118,9 @@ function Energy() {
                   <p className="energy-savings-positive">
                     Predicted Savings: {predictedSavings.toFixed(2)} kWh
                   </p>
-                  <p className="energy-savings-positive">
+                  {/* <p className="energy-savings-positive">
                     Monthly Savings: {monthlySavings.toFixed(2)} kWh
-                  </p>
+                  </p> */}
                   <p className="energy-savings-positive">
                     Annual Savings: {annualSavings.toFixed(2)} kWh
                   </p>

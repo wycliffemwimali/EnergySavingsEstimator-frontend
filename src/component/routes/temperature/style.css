@@ -49,6 +49,7 @@ Remove the margin in all browsers.
 */
 
 body {
+  position: relative;
   margin: 0;
 }
 
@@ -615,10 +616,7 @@ html,
   display: grid;
   min-height: 100vh;
   place-items: center;
-  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
-  --tw-gradient-from: #e0f2fe;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(224, 242, 254, 0));
-  --tw-gradient-to: #7dd3fc;
+  background-image: url(./components/background.jpg);
   padding: 1rem;
 }
 
