@@ -4,10 +4,10 @@
 
 The Energy Savings Calculator is a web application that calculates and visualizes the potential energy and cost savings for a rooftop based on its area, material, and predicted energy savings. The calculator provides estimates of monthly and annual savings in both USD and Kenyan Shillings (KES)..
 
-Predicts energy savings based on rooftop area and material
-Conversion of energy savings to USD and KES
-Visualization of savings using a circular chart
-Tested the scalability of web application by generating 10000 user requests with the help of Apache Beam.
+Predicts energy savings based on rooftop area and material..
+Conversion of energy savings to USD and KES..
+Visualization of savings using a circular chart..
+Tested the scalability of web application by generating 10000 user requests with the help of Apache Beam...
 
 
 
