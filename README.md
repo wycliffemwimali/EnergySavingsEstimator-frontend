@@ -1,84 +1,49 @@
 
 
-![energysav](https://github.com/wycliffemwimali/EnergySavingsEstimator-frontend/assets/99508839/fa30655f-9164-40dc-9ce6-a85add5c8391)
-
-The Energy Savings Calculator is a web application that calculates and visualizes the potential energy and cost savings for a rooftop based on its area, material, and predicted energy savings. The calculator provides estimates of monthly and annual savings in both USD and Kenyan Shillings (KES)..
-
-Predicts energy savings based on rooftop area and material..
-Conversion of energy savings to USD and KES..
-Visualization of savings using a circular chart..
-Tested the scalability of web application by generating 10000 user requests with the help of Apache Beam...
+![Homescreen](https://github.com/wycliffemwimali/EnergySavingsEstimator-frontend/assets/99508839/490cf6e9-163e-4246-a248-30b7fac0a41d)
 
 
+Energy Savings Calculator
+The Energy Savings Calculator is a user-friendly web application designed to determine the potential energy and cost savings for a rooftop. This tool is invaluable for assessing the financial and environmental benefits of installing energy-efficient materials on rooftops.
 
-# Getting Started with Create React App
+Features
+Rooftop Energy Savings Prediction: The calculator uses inputs such as rooftop area and material to predict potential energy savings. This information empowers users to make informed decisions about energy-efficient upgrades.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Currency Conversion: The application not only estimates energy savings but also converts them into both USD and Kenyan Shillings (KES), enabling users to understand the monetary benefits of their choices.
 
-## Available Scripts
+Interactive Visualization: The calculator presents the calculated savings through an intuitive circular chart. This visualization aids users in comprehending and comparing monthly and annual savings at a glance.
 
-In the project directory, you can run:
+How to Use
+Input Details: Navigate to the Map intergration component and select coordinates of your building to calculate area, Enter your roof material.
 
-### `npm start`
+Calculate: Click the "Calculate" button to initiate the energy savings prediction process.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Results: The calculated monthly and annual savings will be displayed in both USD and KES. The circular chart will also visually represent these savings for better understanding.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Testing and Scalability
+The Energy Savings Calculator has been rigorously tested to ensure its performance and scalability. One notable test involved generating 10,000 user requests concurrently using the Apache Beam framework. This test confirms the application's ability to handle a high volume of users without compromising its responsiveness.
 
-### `npm test`
+Installation
+To set up the Energy Savings Calculator locally, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the repository: git clone https://github.com/wycliffemwimali/EnergySavingsEstimator-frontend  for frontend.
+                      https://github.com/wycliffemwimali/EnergySavingsEstimator-Backend for backend.
 
-### `npm run build`
+Navigate to the project directory: cd energy-savings-calculator
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install dependencies: npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Start the development server: npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Access the application through your web browser at http://localhost:3000
 
-### `npm run eject`
+Feedback and Contributions
+We welcome feedback, bug reports, and contributions from the developer community. If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request on our GitHub repository.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Contact
+For inquiries or further information about the Energy Savings Calculator, please contact our team at wycliffemwimali2@gmail.com.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+License
+This project is licensed under the MIT License. You are encouraged to use, modify, and distribute the application in accordance with the terms specified in the license.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# frontend
+By utilizing the Energy Savings Calculator, users can make informed decisions regarding rooftop upgrades, harnessing the power of energy efficiency to both reduce costs and contribute to a more sustainable future.
