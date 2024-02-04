@@ -43,7 +43,7 @@
     position: absolute;
   top: 30px;
   color: #365a7a;
-  font-size: 48px;
+  font-size: 44px;
   width: 800px;
   display: flex;
   align-items: center;
@@ -109,7 +109,7 @@
   }
   
   /* Add some fancy icons to the energy-details */
-  .energy-details .icon {
+  /* .energy-details .icon {
     width: 40px;
     height: 40px;
     margin: 10px;
@@ -123,7 +123,7 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  }
+  } */
   
   /* Adding hover effects to the icons */
   .energy-details .icon:hover {
