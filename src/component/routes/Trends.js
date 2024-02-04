@@ -9,6 +9,9 @@ const PageWrapper = styled.div`
   justify-content: center;
   height: 100vh; /* Set the height of the page to 100% of the viewport height */
 `;
+const headingStyle = {
+  fontWeight: 'bold',
+};
 
 const ContentWrapper = styled.div`
   flex: 1; /* Take up all available space in the vertical direction */
@@ -20,7 +23,7 @@ const ContentWrapper = styled.div`
 function Trends() {
   return (
     <PageWrapper>
-      <h1>Energy Savings Trends</h1>
+       <h1 style={headingStyle}>Energy Savings Trends</h1>
       <ContentWrapper>
         <EnergySavingsChart />
       </ContentWrapper>

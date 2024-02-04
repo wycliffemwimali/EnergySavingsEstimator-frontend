@@ -22,7 +22,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^5.3.4",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^3.0.1",
+    "react-table": "^7.8.0",
     "recharts": "^2.7.2",
     "styled-components": "^6.0.5",
     "victory": "^36.6.11",
@@ -56,8 +57,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.0",
     "postcss": "^8.3.11",
-    "tailwindcss": "^2.2.19",
-    "svgo-loader": "^4.0.0"
+    "svgo-loader": "^4.0.0",
+    "tailwindcss": "^2.2.19"
   }
 }
-

@@ -1,12 +1,17 @@
 // src/data/energySavingsData.js
 const energySavingsData = [
-    { month: 'January', energySavings: 10, coolingEfficiency: 80, coolingLoadReduction: 20 },
-    { month: 'February', energySavings: 50, coolingEfficiency: 85, coolingLoadReduction: 30 },
-    { month: 'March', energySavings: 70, coolingEfficiency: 90, coolingLoadReduction: 25 },
-    { month: 'April', energySavings: 90, coolingEfficiency: 80, coolingLoadReduction: 20 },
-    { month: 'May', energySavings: 100, coolingEfficiency: 80, coolingLoadReduction: 20 },
-    { month: 'June', energySavings: 120, coolingEfficiency: 80, coolingLoadReduction: 20 },
-    { month: 'July', energySavings: 150, coolingEfficiency: 80, coolingLoadReduction: 20 },
+    { month: 'March', coolingEfficiency: 90, coolingLoadReduction: 25 },
+    { month: 'April', coolingEfficiency: 80, coolingLoadReduction: 20 },
+    { month: 'May', coolingEfficiency: 70, coolingLoadReduction: 20 },
+    { month: 'June', coolingEfficiency: 80, coolingLoadReduction: 30 },
+    { month: 'July', coolingEfficiency: 50, coolingLoadReduction: 60 },
+    { month: 'August', coolingEfficiency: 40, coolingLoadReduction: 50 },
+    { month: 'September', coolingEfficiency: 50, coolingLoadReduction: 50 },
+    { month: 'October', coolingEfficiency: 50, coolingLoadReduction: 50 },
+    { month: 'November', coolingEfficiency: 60, coolingLoadReduction: 65 },
+    { month: 'December', coolingEfficiency: 30, coolingLoadReduction: 70 },
+    { month: 'January', coolingEfficiency: 90, coolingLoadReduction: 20 },
+    { month: 'February', coolingEfficiency: 85, coolingLoadReduction: 30 },
     // Add more data points for other months...
   ];
   

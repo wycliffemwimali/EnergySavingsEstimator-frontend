@@ -14,28 +14,37 @@ const AppWrapper = styled.div`
   display: flex; /* Use Flexbox to arrange charts horizontally */
   flex-wrap: wrap; /* Allow charts to wrap to the next line if needed */
   justify-content: space-between; /* Distribute charts evenly along the container */
+  height: 850px
 `;
 
 const ChartContainer = styled.div`
-  flex-basis: calc(33% - 20px); /* Adjust the width of each chart container */
-  margin-bottom: 20px;
+  flex: 1;
+  background-color: #8cedab;
+  border-radius: 8px;
+  margin: 0 10px;
+  padding: 20px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  height: 800px; /* Adjust the height as needed */
 `;
+
 
 const Visualize = () => {
   return (
     <AppWrapper>
-      <h1>Energy Savings Visualization</h1>
+      {/* <h1>Energy Savings Visualization</h1> */}
+      {/* Energy Savings Chart
       <ChartContainer>
-        <h2>Energy Savings</h2>
-        <EnergySavingsChart data={energySavingsData} dataKey="energySavings" color="#8884d8" />
+        <EnergySavingsChart data={energySavingsData} dataKey="energySavings" color="#8C99F3" />
+      </ChartContainer> */}
+
+      {/* Cooling Efficiency Chart */}
+      <ChartContainer>
+        <EnergySavingsChart data={energySavingsData} dataKey="coolingEfficiency" color="#620E86" />
       </ChartContainer>
+
+      {/* Cooling Load Reduction Chart */}
       <ChartContainer>
-        <h2>Cooling Efficiency</h2>
-        <EnergySavingsChart data={energySavingsData} dataKey="coolingEfficiency" color="#82ca9d" />
-      </ChartContainer>
-      <ChartContainer>
-        <h2>Cooling Load Reduction</h2>
-        <EnergySavingsChart data={energySavingsData} dataKey="coolingLoadReduction" color="#ffc658" />
+        <EnergySavingsChart data={energySavingsData} dataKey="coolingLoadReduction" color="#1633F0" />
       </ChartContainer>
     </AppWrapper>
   );
