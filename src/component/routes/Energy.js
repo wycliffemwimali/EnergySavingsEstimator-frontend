@@ -56,7 +56,7 @@ function Energy() {
   const monthlySavings = predictedSavings;
   const annualSavings = predictedSavings * 12;
 
-  // Assuming the cost of electricity per kWh is $0.12 (you can change this value as needed)
+  // Assuming the cost of electricity per kWh is $0.172 (you can change this value as needed)
   const electricityCostPerKWh = 0.172;
   const monthlyCostSavings = monthlySavings * electricityCostPerKWh;
   const annualCostSavings = annualSavings * electricityCostPerKWh;
@@ -118,12 +118,17 @@ function Energy() {
           "Consider using reflective roofing materials for higher energy savings."
         );
         insights.push(
-          "Metal roofs are known for their durability and energy efficiency."
+          "Metal roofs are known for their durability and Longetivity."
         );
       }
       if (rooftopDetails.material === "Tile") {
         insights.push(
-          "Tile roofs can provide good insulation and help regulate temperature."
+          "Tile roofs provide good insulation and help regulate temperature."
+        );
+      }
+      if (rooftopDetails.material === "Concrete") {
+        insights.push(
+          "Concrete roofs provide good insulation and help regulate temperature."
         );
       }
       // You can add more conditions based on different types of roofing materials and their benefits

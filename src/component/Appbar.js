@@ -154,7 +154,7 @@ export default function MiniDrawer() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-              Energy Savings Estimator
+              Reflect To Cool ToolKit
             </Typography>
           </Toolbar>
         </AppBar>
